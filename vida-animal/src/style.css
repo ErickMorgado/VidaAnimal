@@ -294,3 +294,67 @@ code {
     border-right-color: var(--border);
   }
 }
+
+#app {
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.status-card {
+  width: min(440px, 100%);
+  padding: 40px;
+  box-sizing: border-box;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.status-card .eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-card h1 {
+  margin: 0 0 28px;
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  letter-spacing: -0.5px;
+}
+
+#api-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--text);
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  background: #a7b3aa;
+}
+
+#api-status.is-online {
+  color: #247044;
+}
+
+#api-status.is-online .status-indicator {
+  background: #2e9b59;
+}
+
+#api-status.is-offline {
+  color: #a33a32;
+}
+
+#api-status.is-offline .status-indicator {
+  background: #d34b40;
+}
