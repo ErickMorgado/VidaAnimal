@@ -87,3 +87,22 @@ CREATE TABLE animal (
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 ) ENGINE = InnoDB;
+
+CREATE TABLE apadrinhamento (
+    id_doador INT NOT NULL,
+    id_animal INT NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE,
+    ativo BOOLEAN NOT NULL DEFAULT TRUE,
+    PRIMARY KEY (id_doador, id_animal),
+    CONSTRAINT chk_apadrinhamento_datas
+        CHECK (data_fim IS NULL OR data_fim >= data_inicio),
+    CONSTRAINT fk_apadrinhamento_doador
+        FOREIGN KEY (id_doador) REFERENCES doador (id_doador)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_apadrinhamento_animal
+        FOREIGN KEY (id_animal) REFERENCES animal (id_animal)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+) ENGINE = InnoDB;
